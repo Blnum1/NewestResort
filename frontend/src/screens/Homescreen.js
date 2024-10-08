@@ -1,29 +1,44 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Room from "../components/Room";
 
 function Homescreen() {
-  const [rooms, setRooms] = useState([]); // สร้าง state สำหรับเก็บข้อมูลห้อง
-
+  const [rooms, setrooms] = useState([]); // สร้าง state สำหรับเก็บข้อมูลห้อง
+  const [loading, setloading] = useState();
+  const [error, seterror] = useState();
   useEffect(() => {
-    const fetchRooms = async () => {
+    (async () => {
       try {
-        const data = await axios.get('/api/rooms/getallrooms'); // ใช้ await กับ axios.get
-        setRooms(data); // ตั้งค่า rooms จาก response.data.rooms
-
+        setloading(true);
+        const { data } = await axios.get("/api/rooms/getallrooms");
+        setrooms(data);
+        setloading(false);
       } catch (error) {
-        console.error('Error fetching rooms:', error); // แสดงข้อผิดพลาดใน console
+        seterror(error);
+        console.log(error);
+        setloading(false);
       }
-    };
-
-    fetchRooms(); // เรียกใช้ฟังก์ชัน fetchRooms
+    })(); // เรียกใช้ฟังก์ชันที่ประกาศขึ้นแบบทันที
   }, []);
 
   return (
-    <div>
-      <h1>Homescreen</h1>
-      <h1>there are {rooms.length} rooms</h1>
+    <div className="container">
+      <div className="row justify-content-center mt-5">
+        {loading ? (
+          <h1>Loading....</h1>
+        ) : error ? (
+          <h1>Error</h1>
+        ) : (
+          rooms.map((room) => (
+            <div className="col-md-9 mt-2" key={room.id}> {/* เพิ่ม key */}
+              <Room room={room} />
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
+  
 }
 
 export default Homescreen;

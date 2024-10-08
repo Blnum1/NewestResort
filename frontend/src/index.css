@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.smallimg {
+  height: 200px;
+  width: 100% !important;
+  border-radius: 5px !important;
+}
+.btn{
+  background-color: black !important;
+  color: white !important;
+  box-shadow: none !important;
+}
