@@ -10,6 +10,7 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+<<<<<<< HEAD
 }
 
 .smallimg {
@@ -21,4 +22,6 @@ code {
   background-color: black !important;
   color: white !important;
   box-shadow: none !important;
+=======
+>>>>>>> 207ffa51d57ef9177600dc9c4dc8b1a5110ec796
 }
