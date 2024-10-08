@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Registerscreen.css';
+
 import axios from 'axios';
 
 function Registerscreen() {

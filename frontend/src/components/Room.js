@@ -14,7 +14,7 @@ function Room({ room }) {
                 <img src={room.imageurls[0]} alt={room.name} className='smallimg' /> {/* เพิ่ม alt */}
             </div>
             <div className='col-md-7 '>
-                <h1>{room.name}</h1>
+                <h2>{room.name}</h2>
                 <p>Max Count: {room.maxcount}</p>
                 <p>Phone number: {room.phonenumber}</p>
                 <p>Type: {room.type}</p>
@@ -39,7 +39,7 @@ function Room({ room }) {
                             </Carousel.Item>
                         ))}
                     </Carousel>
-                    <p>{room.description}</p> {/* แก้ไข spelling จาก desciption เป็น description */}
+                    <p>{room.desciption}</p> 
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>

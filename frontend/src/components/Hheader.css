@@ -1,0 +1,28 @@
+.full-width-container {
+  width: 100vw; /* ความกว้างเต็มจอแนวนอน */
+  height: auto; /* ให้ความสูงปรับตามเนื้อหา */
+  padding: 10px 0; /* เพิ่ม padding ด้านบนและล่าง */
+  background-color: #ffffff; /* สีพื้นหลังอ่อน */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(104, 104, 104, 0.1); /* เพิ่มเงาแบบนุ่ม */
+  border-radius: 10px; /* เพิ่มความโค้งมนให้กับกรอบ */
+}
+
+
+
+.custom-btn {
+    background-color: white;
+    color: black;
+    border: 1px solid #ffffff;
+    padding: 15px 50px;
+    margin: 1px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .custom-btn:hover {
+    background-color: #d5fffc;
+    color: black;
+  }
