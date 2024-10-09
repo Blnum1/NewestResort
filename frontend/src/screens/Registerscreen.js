@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
-
+import Loader from "../components/Loader";
+import Error from "../components/Error";
 import axios from 'axios';
+import Success from '../components/Success';
 
 function Registerscreen() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [cpassword, setCpassword] = useState('');
+
+  const [loading, setLoading] = useState(false); 
+  const [error, setError] = useState();
+  const [success,setSuccess] =useState();
 
   async function register() {
     if (password === cpassword) {
@@ -15,12 +21,23 @@ function Registerscreen() {
         email,
         password,
         cpassword
-      }
+      };
       
       try {
-        const result = await axios.post('/api/users/register', user).data
+        setLoading(true);
+        const result = await axios.post('/api/users/register', user).data;
+        setLoading(false);
+        setSuccess(true);
+
+        setName('')
+        setEmail('')
+        setPassword('')
+        setCpassword('')
+
       }catch (error){
-        console.log(error)
+        console.log(error);
+        setLoading(false);
+        setError(true);
 
       }
     } else {
@@ -28,8 +45,14 @@ function Registerscreen() {
     }
   }
 
+
   return (
+    <div>
+    {loading && (<Loader/>)}
+    {error && (<Error/>)}
+
     <div className="container"> {/* ใช้ class จาก CSS */}
+    {success && (<Success message='Registration Success'/>)}
       <h1>Register</h1>
       <div className="mb-1">
         <input
@@ -68,6 +91,7 @@ function Registerscreen() {
         />
       </div>
       <button className="btn btn-primary" onClick={register}>Register</button>
+    </div>
     </div>
   );
 }

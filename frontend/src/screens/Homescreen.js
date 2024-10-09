@@ -8,6 +8,7 @@ function Homescreen() {
   const [rooms, setrooms] = useState([]); // สร้าง state สำหรับเก็บข้อมูลห้อง
   const [loading, setloading] = useState();
   const [error, seterror] = useState();
+
   useEffect(() => {
     (async () => {
       try {
