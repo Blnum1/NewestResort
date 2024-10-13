@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route path='/' element ={<><Homeimg/><Homescreen /></>} />
           <Route path="/home" element={<Homescreen />} />
-          <Route path='/book/:roomid' element={<Bookingscreen />} />
+          <Route path='/book/:roomid/:fromDate/:toDate' element={<Bookingscreen />} />
           <Route path='/register' element={<Registerscreen/>} />
           <Route path='/login' element={<Loginscreen/>} />
           <Route path='/news' element={<Newsscreen/>} />
