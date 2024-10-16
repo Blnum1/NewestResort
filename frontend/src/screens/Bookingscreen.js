@@ -49,7 +49,7 @@ function Bookingscreen() {
     };
   
     try {
-      const result = await axios.post('/api/bookings/bookroom',bookingDetails); // ต้องใส่ URL API ที่ถูกต้อง
+      const result = await axios.post('/api/booking/bookroom',bookingDetails); // ต้องใส่ URL API ที่ถูกต้อง
       console.log("Booking successful", result.data);
       // คุณสามารถเปลี่ยนเส้นทางไปหน้าขอบคุณหรือหน้าการชำระเงินได้ที่นี่
     } catch (error) {

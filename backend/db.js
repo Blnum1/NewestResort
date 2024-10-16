@@ -1,18 +1,15 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-var mongoURL = 'mongodb+srv://jirayutblue20:pp123pp456@cluster0.dqujb.mongodb.net/mem-rooms';
+const mongoURL = 'your-mongodb-connection-string';  // ใส่ MongoDB URL ที่ถูกต้อง
 
+mongoose.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true });
 
-mongoose.connect(mongoURL);
+const connection = mongoose.connection;
 
-var connection = mongoose.connection;
+connection.on('connected', () => {
+    console.log('เชื่อมต่อ MongoDB สำเร็จ');
+});
 
-connection.on('error' , ()=>{
-    console.log('Mongo DB Connection failed');
-})
-
-connection.on('connected' , ()=>{
-    console.log('Mongo DB connection Successful');
-})
-
-module.exports = mongoose
+connection.on('error', (err) => {
+    console.log('การเชื่อมต่อ MongoDB ล้มเหลว:', err);
+});
